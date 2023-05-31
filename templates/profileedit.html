@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body {
+        background-image: url(https://img.freepik.com/free-photo/ribbon-light-space_53876-138216.jpg?w=1380&t=st=1685534686~exp=1685535286~hmac=7c202c6970ee7048758bd96081aca036254fb11d39ec01fd35bb8a12663c6e5b);
+        background-size: cover;
+    }
+</style>
+<div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-center " >
+        
+        <form method="POST" class="shadow p-3 w-50 bg-white" autocomplete="off" enctype="multipart/form-data">
+            <h2 style="color: rgb(41, 1, 243);">Update Account </h2>
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-warning mt-2">Update</button>
+            <a href="{% url 'profilepage' %}" class="btn btn-secondary mt-2">Cancel</a>
+        </form>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+
+
+

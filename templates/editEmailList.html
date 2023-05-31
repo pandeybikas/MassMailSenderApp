@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body {
+        background-image: url('https://img.freepik.com/free-photo/galaxy-night-view_23-2148895310.jpg?w=996&t=st=1685558558~exp=1685559158~hmac=a4a6977ef3158806a3061afe90142eb630ace6650b241b439a95e6433c97851a');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    label {
+        display: none;
+    }
+</style>
+<div class="container mt-5">
+
+    <h3 class="text-center" style="color: yellow; margin-top: 250px;">Update Email Information</h3>
+    <hr>
+    <div class="justify-content-center">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="d-flex">
+            {{editform}}
+            <button type="submit" class="btn btn-warning  mx-2">Update</button>
+            <a href="{% url 'email_list_page' %}" class="btn btn-primary ">Cancel </a>
+            </div>
+        </form>
+        
+  
+  
+
+</div>
+</div>
+
+{% endblock content %}

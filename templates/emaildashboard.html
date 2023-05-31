@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  body {
+    background-image: url('https://img.freepik.com/free-photo/starry-night-sky_1048-11828.jpg?w=900&t=st=1685470391~exp=1685470991~hmac=65566bbde1103c7f4a953b06a67f6bce0f20a67b3c576cec327041009d0ac8ee');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
+<div class="container mt-5">
+    <div class="d-flex justify-content-center p-3 shadow">
+        <h3 style="color: yellow;"> Email Sending Dashboard </h3>
+    </div>
+<form method="POST" class="p-3" enctype="multipart/form-data"> 
+  {% csrf_token %}
+<div class="row mt-5">
+    <div class="col-md-4 border p-3" style="background-color: #fcfac0;">
+      <h3 style="color:blue;">Select Recipient</h3>
+     
+      {% for i in all_entry %}
+        <div class="form-check">
+            <input class="form-check-input" name="email" type="checkbox" value="{{i.email}}" id="flexCheckChecked" >
+            <label class="form-check-label" for="flexCheckChecked">
+              {{i.email}}
+            </label>
+          </div>
+       {% endfor %}
+    </div>
+    <div class="col-md-8 ">
+      <input type="text" name="subject" class="form-control" placeholder="Subject">
+        <textarea rows="8" cols="50" class="form-control mt-2" name="email_body">
+          Delete this and type your mail body here...
+          </textarea>
+      <input type="file" name="attachment" class="form-control mt-2">
+    </div>
+</div>
+<div class="mt-5 d-flex justify-content-center">
+  <button type="submit" class="btn btn-warning w-30" style="width: 130px;">Send Mail</button>
+  </div>
+</form>   
+
+</div>
+
+{% endblock content %}

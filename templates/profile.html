@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body {
+      background-image: url('https://img.freepik.com/free-photo/fictional-planet-with-colourful-night-sky-stars-nebula_1048-7926.jpg?w=900&t=st=1685557178~exp=1685557778~hmac=ee54745049b59c0765cb3dab9dd8f363adc179785f714a5b31296aebcd6d7c20');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+  <h1 class="text-center" style="color: yellow; margin-top: 140px;">Your Profile Page </h1>
+<div class="container mt-5 d-flex justify-content-center">
+
+<div class="bg-white w-50 p-4 rounded">
+    {% if user.profile.name %}
+    <center>
+    <img src="{{user.profile.image.url}}" style="width: 60px; height: 60px; border-radius: 50%">
+    <ul>
+    <li style="list-style-type: none;"><h5>👤 {{user.profile.name}}</h5></li>
+    <li style="list-style-type: none;"><h5>🏢 {{user.profile.company}}</h5></li>
+    <li style="list-style-type: none;"><h5>☎️ {{user.profile.phone_number}}</h5></li>
+    <li style="list-style-type: none;"><h5>📧 {{user.email}}</h5></li>
+    <li style="list-style-type: none;"><h5>🗨️ {{user.profile.bio}} </h5></li>
+    </ul>
+    <a href="{% url 'profileedit' user.profile.id %}" class="mt-2 btn btn-warning">Update Profile </a>
+{% else %}
+<h1>Profile of {{user.username}}</h1>
+
+<a href="{% url 'profileedit' user.profile.id %}" class="mt-2 btn btn-warning">Update Profile </a>
+    </center>
+{%  endif %}
+</div>
+
+
+
+
+</div>
+
+{% endblock content %}
+
+
+

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body {
+      background-image: url('https://img.freepik.com/free-photo/galaxy-night-landscape_23-2148895320.jpg?w=1380&t=st=1685557378~exp=1685557978~hmac=1113aff511f6a6cec6e43e60b07ac0fc3765f505eaa1825d8a079ac8008a5849');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+  <h1 class="text-center" style="color: yellow; margin-top: 140px;">Your Email List </h1>
+<div class="container mt-5 d-flex justify-content-center">
+
+<div class="bg-white w-75 p-4 rounded" style="">
+    {% if all_entry %}
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">S/no.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Action</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        {% for i in all_entry.all %}
+        <tbody>
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{i.name}}</td>
+            <td>{{i.email}}</td>
+            <td><a href="{% url 'editEmailList' i.id %}" style="text-decoration: none;">Edit</a></td>
+            <td><a href="{% url 'deleteEmailList' i.id %}" style="text-decoration: none; color: red;">Delete</a></td>
+          </tr>
+     
+        </tbody>
+        {% endfor %}
+      </table>
+   
+{% else %}
+
+<p class="text-center">Email List Empty - </p>
+<div class="d-flex justify-content-center">
+<a href="{% url 'create_group' %}" class="mt-2 btn btn-warning">Add Email </a>
+</div>
+    </center>
+{%  endif %}
+</div>
+
+
+
+
+</div>
+
+{% endblock content %}
+
+
+

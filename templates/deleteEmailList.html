@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body {
+      background-image: url('https://img.freepik.com/free-photo/galaxy-night-view_23-2148895303.jpg?w=996&t=st=1685559587~exp=1685560187~hmac=d1f15b38f67d99af973897375f7325bb7efe3cdd2d6377fd31604359322181bb');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+  <h1 class="text-center" style="color: yellow; margin-top: 140px;">Delete Email Confirmation </h1>
+<div class="container mt-5 d-flex justify-content-center">
+
+<div class="bg-white w-50 p-4 rounded">
+    <form method="POST">
+   <h1>Are you sure you want to delete ?</h1>
+   <h5 style="color: blue;">{{delete_obj.email}}  </h5>
+   {% csrf_token %}
+
+   <button type="submit" class="btn btn-danger">Delete</button>
+   <a href="{% url 'email_list_page' %}" class="btn btn-warning ">Cancel </a>
+   
+</div>
+
+
+
+
+</div>
+
+{% endblock content %}
+
+
+

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body {
+      background-image: url('https://img.freepik.com/free-photo/milky-way-galaxy-night_335224-1107.jpg?w=1380&t=st=1685529810~exp=1685530410~hmac=f2bf36d0b4ca14792a72405907b1fd1a13fae9f3b20ded0f72dc2724f60c0717');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+<div class="container mt-5 " >
+
+<h1 class="text-center" style="color: yellow;margin-top:250px; ">mail sent successfully</h1>
+<center>
+<img src="/static/images/check.png" style="width: 70px; height: 70px;">
+    
+</center>
+<div class="d-flex justify-content-center mt-4">
+<a href="{% url 'home' %}" class="btn btn-primary">Return Home</a>
+<a href="{% url 'emaildashboard' %}" class="btn btn-warning mx-2">Send More Mails</a>
+</div>
+</div>
+
+
+{% endblock content %}
