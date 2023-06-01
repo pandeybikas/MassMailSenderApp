@@ -11,8 +11,17 @@
     }
 </style>
 <div class="container mt-5">
-
-    <h3 class="text-center" style="color: yellow; margin-top: 250px;">Add atleast 1 email list</h3>
+    
+    <div class="d-flex justify-content-center">
+        {% for k in messages %}
+            {% if k.tags == 'success' %}
+            <div class="alert alert-warning w-50">
+               <p style="color: black; font-size: 17px;" class="text-center"> {{k}}</p>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <h3 class="text-center" style="color: yellow; margin-top: 250px;">Add atleast 1 email </h3>
     <hr>
     <div class="justify-content-center">
         <form method="POST">

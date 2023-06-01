@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import EmailModelForm
 from .models import EmailList
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.mail import EmailMultiAlternatives
 # Create your views here.
@@ -19,7 +20,9 @@ def create_group(request):
             email = request.POST.get('email')
             s = EmailList(sender=sender, name=name, email=email)
             s.save()
+        messages.success(request,"Email added successfully !!! Add More...")
         return redirect('create_group')
+
     else:
         form = EmailModelForm()
     context = {

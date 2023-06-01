@@ -14,7 +14,7 @@
 <form method="POST" class="p-3" enctype="multipart/form-data"> 
   {% csrf_token %}
 <div class="row mt-5">
-    <div class="col-md-4 border p-3" style="background-color: #fcfac0;">
+    <div class="col-md-5 border p-3" style="background-color: #fcfac0;">
       <h3 style="color:blue;">Select Recipient</h3>
      
       {% for i in all_entry %}
@@ -23,10 +23,15 @@
             <label class="form-check-label" for="flexCheckChecked">
               {{i.email}}
             </label>
+            &nbsp &nbsp<a href="{% url 'editEmailList' i.id %}">  
+              <img src="/static/images/edit-text.png" style="width: 14px; height: 14px;"></a>
+            &nbsp &nbsp
+            <a href="{% url 'deleteEmailList' i.id %}">
+            <img src="/static/images/delete.png" style="width: 14px; height: 14px;"></a>
           </div>
        {% endfor %}
     </div>
-    <div class="col-md-8 ">
+    <div class="col-md-7 ">
       <input type="text" name="subject" class="form-control" placeholder="Subject">
         <textarea rows="8" cols="50" class="form-control mt-2" name="email_body">
           Delete this and type your mail body here...
